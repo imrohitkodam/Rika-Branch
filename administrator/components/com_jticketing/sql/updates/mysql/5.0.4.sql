@@ -1,0 +1,4 @@
+UPDATE `#__tj_notification_templates` SET `replacement_tags` = CONCAT(LEFT(`replacement_tags`, LENGTH(`replacement_tags`) - 1), ',{"name":"ticket.entry_number","description":"Entry Number for the Ticket."}]') WHERE `key` = 'e-tickets' AND `client` = 'com_jticketing';
+UPDATE `#__tj_notification_templates` SET `replacement_tags` = CONCAT(LEFT(`replacement_tags`, LENGTH(`replacement_tags`) - 1), ',{"name":"ticket.entry_number","description":"Entry Number for the Ticket."}]') WHERE `key` = 'm-tickets' AND `client` = 'com_jticketing';
+ALTER TABLE `#__jticketing_types` add column `pending_seats` int(10) NOT NULL DEFAULT 0 COMMENT 'The seats locked while booking an tickets';
+ALTER TABLE `#__jticketing_types` add column  `max_ticket_per_order` INT(11) NOT NULL DEFAULT 0 COMMENT '0=unlimited OR max_ticket_per_order as specified';
